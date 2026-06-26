@@ -103,7 +103,7 @@ export default function Hero() {
           {[
             { value: '5+', label: 'Projects Built' },
             { value: '2+', label: 'Internships' },
-            { value: '7.64', label: 'CGPA' },
+            { value: '7.69', label: 'CGPA' },
             { value: '∞',  label: 'Curiosity' },
           ].map(({ value, label }) => (
             <div key={label} className="stat-card">

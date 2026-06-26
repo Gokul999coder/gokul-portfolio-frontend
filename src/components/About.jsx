@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './About.css';
 
 const HIGHLIGHTS = [
-  { icon: '🎓', title: 'B.Tech IT', sub: 'R.M.K Engineering College', extra: 'CGPA: 7.64 / 10' },
+  { icon: '🎓', title: 'B.Tech IT', sub: 'R.M.K Engineering College', extra: 'CGPA: 7.69/ 10' },
   { icon: '💻', title: 'Full Stack Dev', sub: 'React + Node + Java', extra: 'Frontend-first mindset' },
   { icon: '📱', title: 'Mobile Dev', sub: 'React Native + Firebase', extra: 'Cross-platform apps' },
   { icon: '🎨', title: 'UI/UX Design', sub: 'Figma + Canva', extra: 'Pixel-perfect interfaces' },
