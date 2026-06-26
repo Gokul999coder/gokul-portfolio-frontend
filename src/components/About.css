@@ -1,0 +1,138 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.about-para {
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 1.25rem;
+  font-size: 1.02rem;
+}
+
+.about-para strong {
+  color: var(--violet-3);
+  font-weight: 600;
+}
+
+.about-fun-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.fun-fact {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  transition: all var(--t-base);
+}
+
+.fun-fact:hover {
+  border-color: rgba(124,58,237,0.3);
+  color: var(--text-primary);
+}
+
+.fun-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Highlight cards */
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.highlight-card {
+  position: relative;
+  background: var(--grad-card);
+  border: 1px solid var(--border-glow);
+  border-radius: 16px;
+  padding: 1.5rem;
+  overflow: hidden;
+  cursor: default;
+  transition: all var(--t-base);
+}
+
+.highlight-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--violet-2);
+  box-shadow: 0 16px 40px rgba(124,58,237,0.2);
+}
+
+.highlight-card:hover .hc-glow {
+  opacity: 1;
+}
+
+.hc-icon {
+  font-size: 2rem;
+  margin-bottom: 0.875rem;
+  display: block;
+}
+
+.hc-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.hc-sub {
+  font-size: 0.8rem;
+  color: var(--cyan-2);
+  margin-bottom: 0.25rem;
+  font-family: var(--font-mono);
+}
+
+.hc-extra {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.hc-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(124,58,237,0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--t-base);
+  pointer-events: none;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .about-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-cards { grid-template-columns: 1fr; }
+  .about-fun-facts { grid-template-columns: 1fr; }
+}

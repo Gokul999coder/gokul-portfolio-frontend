@@ -1,0 +1,68 @@
+.app {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  position: relative;
+  min-height: 100vh;
+}
+
+.app.loaded {
+  opacity: 1;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--grad-primary);
+  z-index: calc(var(--z-nav) + 1);
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px rgba(124,58,237,0.6);
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 46px;
+  height: 46px;
+  background: var(--bg-card);
+  border: 1px solid rgba(124,58,237,0.4);
+  border-radius: 12px;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-nav);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all var(--t-base);
+  pointer-events: none;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.back-to-top:hover {
+  background: rgba(124,58,237,0.2);
+  border-color: var(--violet-2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(124,58,237,0.3);
+}
+
+/* Ensure sections sit above orbs */
+main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section divider glow lines */
+#about, #skills, #projects, #experience, #contact {
+  border-top: 1px solid rgba(255,255,255,0.04);
+}

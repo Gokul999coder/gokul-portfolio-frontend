@@ -1,0 +1,180 @@
+.projects-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 500px;
+  margin-bottom: 3rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Project Card */
+.project-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease, border-color var(--t-base), box-shadow var(--t-base);
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:hover {
+  border-color: rgba(124,58,237,0.4);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(124,58,237,0.15);
+  transform: translateY(-6px);
+}
+
+.project-card.featured {
+  grid-column: span 2;
+}
+
+.project-bar {
+  height: 4px;
+  width: 100%;
+}
+
+.project-body {
+  padding: 1.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.project-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.project-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan-2);
+  background: rgba(6,182,212,0.1);
+  border: 1px solid rgba(6,182,212,0.25);
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.project-tagline {
+  font-size: 0.85rem;
+  color: var(--cyan-2);
+  font-family: var(--font-mono);
+  margin-bottom: 0.875rem;
+}
+
+.project-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+/* Bullet points — slide in on hover */
+.project-points {
+  list-style: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin 0.3s ease;
+  margin: 0;
+}
+
+.project-points.show {
+  max-height: 200px;
+  margin-bottom: 1rem;
+}
+
+.project-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.project-points li::before {
+  content: '▸';
+  color: var(--violet-3);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--violet-3);
+  background: rgba(124,58,237,0.1);
+  border: 1px solid rgba(124,58,237,0.2);
+  padding: 0.25rem 0.625rem;
+  border-radius: 6px;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.proj-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all var(--t-base);
+}
+
+.proj-link:hover {
+  color: var(--text-primary);
+  border-color: var(--violet-2);
+  background: rgba(124,58,237,0.1);
+}
+
+.project-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity var(--t-base);
+}
+
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card.featured { grid-column: span 1; }
+}
