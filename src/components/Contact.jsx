@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const CONTACT_LINKS = [
@@ -49,7 +50,11 @@ const CONTACT_LINKS = [
   },
 ];
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+// ─── Paste your EmailJS credentials here ───────────────────────────────────
+const EMAILJS_SERVICE_ID  = 'service_bp2fgk7';   // e.g. 'service_abc123'
+const EMAILJS_TEMPLATE_ID = 'template_yjfell5';  // e.g. 'template_xyz789'
+const EMAILJS_PUBLIC_KEY  = 'qpyVNwT5sVM-NGRPQ';   // e.g. 'user_XXXXXXXXXXXXXXX'
+// ───────────────────────────────────────────────────────────────────────────
 
 export default function Contact() {
   const ref = useRef(null);
@@ -78,25 +83,25 @@ export default function Contact() {
     setErrMsg('');
 
     try {
-      const res  = await fetch(`${BACKEND_URL}/api/contact`, {
-        method : 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body   : JSON.stringify(formData),
-      });
-      const data = await res.json();
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name:  formData.name,
+          from_email: formData.email,
+          subject:    formData.subject,
+          message:    formData.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
 
-      if (res.ok && data.success) {
-        setStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setTimeout(() => setStatus('idle'), 5000);
-      } else {
-        setStatus('error');
-        setErrMsg(data.message || 'Something went wrong. Please try again.');
-        setTimeout(() => setStatus('idle'), 5000);
-      }
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setTimeout(() => setStatus('idle'), 5000);
     } catch (err) {
+      console.error(err);
       setStatus('error');
-      setErrMsg('Could not reach the server. Check your connection.');
+      setErrMsg('Failed to send. Please try again later.');
       setTimeout(() => setStatus('idle'), 5000);
     }
   };
