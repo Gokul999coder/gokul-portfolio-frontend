@@ -146,7 +146,7 @@ export default function Hero() {
           </a>
           <a
             className="btn-ghost"
-            href="https://linkedin.com/in/gokul-m"
+            href="https://www.linkedin.com/in/gokul-m-bb087328a/"
             target="_blank"
             rel="noopener noreferrer"
             title="LinkedIn"
