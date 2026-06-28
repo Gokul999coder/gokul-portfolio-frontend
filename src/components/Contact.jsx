@@ -13,7 +13,7 @@ const CONTACT_LINKS = [
     label: 'Email',
     value: 'itsgokul555@gmail.com',
     href: 'mailto:itsgokul555@gmail.com',
-    color: '#a855f7',
+    color: '#ff3d3d',
   },
   {
     icon: (
@@ -24,7 +24,7 @@ const CONTACT_LINKS = [
     label: 'Phone',
     value: '+91 73587 30797',
     href: 'tel:+917358730797',
-    color: '#06b6d4',
+    color: '#34d399',
   },
   {
     icon: (
@@ -33,9 +33,9 @@ const CONTACT_LINKS = [
       </svg>
     ),
     label: 'LinkedIn',
-    value: 'linkedin.com/in/gokul-m',
-    href: 'https://linkedin.com/in/gokul-m',
-    color: '#f472b6',
+    value: 'linkedin.com/in/gokul-m-bb087328a',
+    href: 'https://www.linkedin.com/in/gokul-m-bb087328a/',
+    color: '#1b9cff',
   },
   {
     icon: (
@@ -46,7 +46,7 @@ const CONTACT_LINKS = [
     label: 'GitHub',
     value: 'github.com/Gokul999coder',
     href: 'https://github.com/Gokul999coder',
-    color: '#34d399',
+    color: '#ffffff',
   },
 ];
 
