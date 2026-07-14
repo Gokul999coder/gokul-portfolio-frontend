@@ -72,7 +72,7 @@ export default function Hero() {
         <h1 className="hero-title">
           <span className="hero-greeting">Hi, I'm</span>
           <br />
-          <span className="hero-name">Gokul M</span>
+          <span className="hero-name">prasanth M</span>
         </h1>
 
         <div className="hero-roles">
